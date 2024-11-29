@@ -64,29 +64,6 @@ public class ProductRepository {
         return new PagedResponse<>(products, page, pageSize, totalElements, null);
     }
 
-
-    /*public PagedResponse<ProductEntity> searchByName(String name, Integer lastId, int pageSize) {
-        SearchSession searchSession = Search.session(entityManager);
-
-        SearchQuery<ProductEntity> query = searchSession.search(ProductEntity.class)
-                .where(f -> f.match().field("productName").matching(name))
-                .sort(f -> f.field("id").asc())
-                .toQuery();
-
-        SearchResult<ProductEntity> result;
-        if (lastId == null) {
-            result = query.fetch(0, pageSize);
-        } else {
-            result = query.fetch(lastId, pageSize);
-        }
-
-        long totalElements = result.total().hitCount();
-        List<ProductEntity> products = result.hits();
-
-        return new PagedResponse<>(products, 0, pageSize, totalElements, lastId);
-    }*/
-
-
     public PagedResponseAfter<ProductEntity> searchByNameAfter(String name, Object[] lastId, int pageSize) throws IOException {
         SearchRequest searchRequest = new SearchRequest("tbl_product-000001"); // replace with your index name
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
@@ -105,7 +82,7 @@ public class ProductRepository {
 
         List<ProductEntity> products = Arrays.stream(searchResponse.getHits().getHits())
                 .map(SearchHit::getSourceAsString)
-                .map(this::convertJsonToProductEntity) // replace with your method to convert JSON to ProductEntity
+                .map(this::convertJsonToProductEntity) 
                 .collect(Collectors.toList());
 
         Object[] newLastId = new Object[] {searchResponse.getHits().getHits()[searchResponse.getHits().getHits().length - 1].getSortValues()[0]};
