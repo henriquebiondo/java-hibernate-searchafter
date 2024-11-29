@@ -25,8 +25,8 @@ Before starting, ensure the following components are installed on your machine:
 
 ### 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/hibernate-search-after-example.git
-cd hibernate-search-after-example
+git clone https://github.com/henriquenicolli/java-hibernate-searchafter
+cd java-hibernate-searchafter
 ```
 
 ### 2. Start the OpenSearch and MySQL containers:
