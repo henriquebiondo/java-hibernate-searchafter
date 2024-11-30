@@ -92,6 +92,10 @@ curl -X GET "http://localhost:8080/find/after/exampleProduct?lastId=5&pageSize=1
 - Open a Pull Request.
 
 
+## Author
+This project was developed by **Henrique Biondo Nicolli Soares**.  
+Feel free to reach out for collaboration or questions regarding the project!  
 
-###
-Enjoy ;)
+- GitHub: [henriquenicolli](https://github.com/henriquenicolli)  
+- Email: henrique.nicolli@gmail.com
+- LinkedIn: [Henrique Biondo Nicolli Soares](https://www.linkedin.com/in/henrique-biondo-nicolli-soares-4aa408106/)  
